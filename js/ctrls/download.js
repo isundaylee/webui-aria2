@@ -71,6 +71,18 @@ function(
     }
   }
 
+  // The action to open a new window / tab to the download file
+  // FIXME URL currently hard-coded
+  // OPTION URL
+
+  scope.gotoFile = function(d) {
+    if (d.files.length != 1) {
+      alert('Not single-file download. '); 
+    } else {
+      window.open('http://ljh.me/direct_access.php?path=' + encodeURIComponent(d.files[0].path), '_blank'); 
+    }
+  }
+
   // start filling in the model of active,
   // waiting and stopped download
   rpc.subscribe('tellActive', [], function(data) {

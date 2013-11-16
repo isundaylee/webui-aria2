@@ -284,6 +284,13 @@
           </button>
 
           <button
+            ng-show="hasStatus(download, ['complete'])"
+            class="btn hidden-phone"
+            ng-click="gotoFile(download)">
+            <i class="icon-stop"></i>
+          </button>
+
+          <button
             class="btn hidden-phone"
             ng-show="['waiting', 'active'].indexOf( getType(download) )!= -1"
             ng-click="showSettings(download)">
